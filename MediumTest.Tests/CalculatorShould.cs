@@ -18,5 +18,20 @@ namespace MediumTest.Tests
             // Assert
             Assert.Equal(number1 + number2, result);
         }
+
+        [Fact]
+        public void Cannot_add_two_numbers()
+        {
+            // Arrange
+            int number1 = 10;
+            int number2 = 20;
+            Calculator sut = new Calculator();
+
+            // Act
+            int result = sut.Sum(number1, number2);
+
+            // Assert
+            Assert.Equal(number1 + 5, result);
+        }
     }
 }
