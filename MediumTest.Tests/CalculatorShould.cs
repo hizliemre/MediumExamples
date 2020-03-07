@@ -69,5 +69,6 @@ namespace MediumTest.Tests
             // Assert
             Assert.Equal(number1 + number2, result);
         }
+
     }
 }
