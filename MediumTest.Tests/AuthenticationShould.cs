@@ -88,6 +88,7 @@ namespace MediumTest.Tests
         [MemberData(nameof(LoginDataFromMethod), 5)]
         public void Be_able_login_inlinedata_right_way2(string username, string password)
         {
+
             // Arrange
             Authentication sut = new Authentication();
 
@@ -116,5 +117,36 @@ namespace MediumTest.Tests
 
             return items.Take(take);
         }
+
+        [Theory]
+        [MemberData(nameof(LoginDataFromField), MemberType = typeof(MemberDataFromAnotherClass))]
+        public void Be_able_login_inlinedata_right_way3(string username, string password)
+        {
+            // Arrange
+            Authentication sut = new Authentication();
+
+            // Act
+            bool result = sut.Login(username, password);
+
+            // Assert
+            Assert.True(result);
+        }
+    }
+
+    public class MemberDataFromAnotherClass
+    {
+        public static IEnumerable<object[]> LoginDataFromField => new List<object[]>
+        {
+            new object[] {"user1", "password1" },
+            new object[] {"user2", "password2" },
+            new object[] {"user3", "password3" },
+            new object[] {"user4", "password4" },
+            new object[] {"user5", "password5" },
+            new object[] {"user6", "password6" },
+            new object[] {"user7", "password7" },
+            new object[] {"user8", "password8" },
+            new object[] {"user9", "password9" },
+            new object[] {"user10", "password10" }
+        };
     }
 }
