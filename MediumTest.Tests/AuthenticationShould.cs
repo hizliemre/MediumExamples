@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -131,6 +132,34 @@ namespace MediumTest.Tests
             // Assert
             Assert.True(result);
         }
+
+        [Theory]
+        [ClassData(typeof(LoginData))]
+        public void Be_able_login_with_classdata(string username, string password)
+        {
+            // Arrange
+            Authentication sut = new Authentication();
+
+            // Act
+            bool result = sut.Login(username, password);
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [ClassData(typeof(LoginDataStronglyType))]
+        public void Be_able_login_with_strongly_typed_classdata(string username, string password)
+        {
+            // Arrange
+            Authentication sut = new Authentication();
+
+            // Act
+            bool result = sut.Login(username, password);
+
+            // Assert
+            Assert.True(result);
+        }
     }
 
     public class MemberDataFromAnotherClass
@@ -138,15 +167,38 @@ namespace MediumTest.Tests
         public static IEnumerable<object[]> LoginDataFromField => new List<object[]>
         {
             new object[] {"user1", "password1" },
-            new object[] {"user2", "password2" },
-            new object[] {"user3", "password3" },
-            new object[] {"user4", "password4" },
-            new object[] {"user5", "password5" },
-            new object[] {"user6", "password6" },
-            new object[] {"user7", "password7" },
-            new object[] {"user8", "password8" },
-            new object[] {"user9", "password9" },
-            new object[] {"user10", "password10" }
+            new object[] {"user2", "password2" }
         };
+    }
+
+    public class LoginData : IEnumerable<object[]>
+    {
+        public IEnumerator<object[]> GetEnumerator()
+        {
+            yield return new object[] { "user1", "password1" };
+            yield return new object[] { "user2", "password2" };
+            yield return new object[] { "user3", "password3" };
+            yield return new object[] { "user4", "password4" };
+            yield return new object[] { "user5", "password5" };
+            yield return new object[] { "user6", "password6" };
+            yield return new object[] { "user7", "password7" };
+            yield return new object[] { "user8", "password8" };
+            yield return new object[] { "user9", "password9" };
+            yield return new object[] { "user10", "password10" };
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
+    public class LoginDataStronglyType : TheoryData<string, string>
+    {
+        public LoginDataStronglyType()
+        {
+            Add("user1", "password1");
+            Add("user2", "password2");
+            Add("user3", "password3");
+            Add("user4", "password4");
+            Add("user5", "password5");
+        }
     }
 }
