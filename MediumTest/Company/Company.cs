@@ -18,8 +18,8 @@ namespace MediumTest.Company
             _employees = new List<IEmployee>();
         }
 
-        private List<IDepartment> _departments;
-        private List<IEmployee> _employees;
+        private readonly List<IDepartment> _departments;
+        private readonly List<IEmployee> _employees;
 
         public IEnumerable<IDepartment> Departments => _departments;
 
