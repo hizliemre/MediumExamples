@@ -6,5 +6,8 @@ namespace MediumTest.ExampleCompany
     {
         public IEnumerable<IDepartment> Departments { get; }
         public IEnumerable<IEmployee> Employees { get; }
+        public IDepartment ITDepartment { get; }
+        public IDepartment HRDepartment { get; }
+        public IDepartment FinanceDepartment { get; }
     }
 }

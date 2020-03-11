@@ -19,7 +19,7 @@ namespace MediumTest.ExampleCompany
     public interface IEmployee
     {
         public string Name { get; }
-        public int Salary { get; }
+        public double Salary { get; }
         public int Experience { get; }
         public DateTime HireDate { get; }
         public DateTime FireDate { get; }

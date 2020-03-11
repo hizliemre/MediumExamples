@@ -19,6 +19,12 @@ namespace MediumTest.ExampleCompany
 
         public IEnumerable<IEmployee> Employees => _departments.SelectMany(x => x.Employees);
 
+        public IDepartment ITDepartment => _departments.Single(x => x.DepartmentType == DepartmentType.IT);
+
+        public IDepartment HRDepartment => _departments.Single(x => x.DepartmentType == DepartmentType.HR);
+
+        public IDepartment FinanceDepartment => _departments.Single(x => x.DepartmentType == DepartmentType.Finance);
+
         private void Initialize()
         {
             _departments.Add(new HumanResourcesDepartment());

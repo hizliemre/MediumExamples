@@ -4,7 +4,7 @@ namespace MediumTest.ExampleCompany
 {
     internal sealed class Employee : IEmployee
     {
-        public Employee(string name, int salary, DateTime careerStartDate)
+        public Employee(string name, double salary, DateTime careerStartDate)
         {
             Name = name;
             Salary = salary;
@@ -20,7 +20,7 @@ namespace MediumTest.ExampleCompany
         }
 
         public string Name { get; private set; }
-        public int Salary { get; private set; }
+        public double Salary { get; private set; }
         public IDepartment Department { get; private set; }
         public int Experience { get; private set; }
         public DateTime HireDate { get; private set; }
