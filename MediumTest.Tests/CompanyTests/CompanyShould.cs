@@ -9,6 +9,7 @@ namespace MediumTest.Tests.CompanyTests
     public class CompanyShould : IClassFixture<CompanyFixture>
     {
         private readonly CompanyFixture _companyFixture;
+
         public CompanyShould(CompanyFixture companyFixture)
         {
             _companyFixture = companyFixture;
