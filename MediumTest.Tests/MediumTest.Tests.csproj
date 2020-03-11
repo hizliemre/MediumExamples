@@ -18,4 +18,8 @@
     <ProjectReference Include="..\MediumTest\MediumTest.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Company.Tests\" />
+  </ItemGroup>
+
 </Project>
