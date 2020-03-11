@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace MediumTest
+﻿namespace MediumTest
 {
     public class Calculator
     {
