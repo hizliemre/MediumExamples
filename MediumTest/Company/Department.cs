@@ -39,6 +39,12 @@ namespace MediumTest
             return true;
         }
 
+        public bool RemoveEmployee(IEmployee employee)
+        {
+            _employees.Remove(employee);
+            return true;
+        }
+
         public virtual bool SetManager(IEmployee employee)
         {
             Manager = employee;

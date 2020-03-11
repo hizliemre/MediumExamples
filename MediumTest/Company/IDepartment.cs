@@ -7,6 +7,7 @@
         public int EmployeeCount { get; }
         public double AverageSalary { get; }
         bool AddEmployee(IEmployee employee);
+        bool RemoveEmployee(IEmployee employee);
         bool SetManager(IEmployee employee);
     }
 }
