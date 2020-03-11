@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MediumTest
+namespace MediumTest.ExampleCompany
 {
     internal abstract class Department : IDepartment
     {

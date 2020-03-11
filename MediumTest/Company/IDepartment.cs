@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MediumTest
+namespace MediumTest.ExampleCompany
 {
     public interface IDepartment
     {

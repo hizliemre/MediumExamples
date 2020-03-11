@@ -1,4 +1,4 @@
-﻿namespace MediumTest
+﻿namespace MediumTest.ExampleCompany
 {
     public interface IDepartmentManagerProvider
     {

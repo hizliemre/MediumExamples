@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
-namespace MediumTest.Company
+[assembly: InternalsVisibleTo("MediumTest.Tests")]
+namespace MediumTest.ExampleCompany
 {
-
     internal sealed class Company : ICompany
     {
         public Company()

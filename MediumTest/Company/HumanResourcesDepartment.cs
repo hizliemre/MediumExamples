@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MediumTest
+namespace MediumTest.ExampleCompany
 {
     internal class HumanResourcesDepartment : Department
     {

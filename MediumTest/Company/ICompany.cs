@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MediumTest.Company
+namespace MediumTest.ExampleCompany
 {
     public interface ICompany
     {
