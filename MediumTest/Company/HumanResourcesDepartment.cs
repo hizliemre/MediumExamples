@@ -10,7 +10,6 @@ namespace MediumTest
             : base("HR Department")
             => _managerMinimumExperience = 5;
 
-
         public override bool SetManager(IEmployee employee)
         {
             if (employee.Experience < _managerMinimumExperience)
