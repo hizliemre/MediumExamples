@@ -8,9 +8,10 @@ namespace MediumTest.ExampleCompany
     {
         private readonly List<IEmployee> _employees;
 
-        public Department(string name)
+        public Department(string name, DepartmentType departmentType)
         {
             _employees = new List<IEmployee>();
+            DepartmentType = departmentType;
             Name = name;
         }
 
@@ -22,6 +23,8 @@ namespace MediumTest.ExampleCompany
         public double MinimumSalary => _employees.Min(x => x.Salary);
 
         public IEnumerable<IEmployee> Employees => _employees;
+
+        public DepartmentType DepartmentType { get; }
 
         public bool AddEmployee(IEmployee employee)
         {

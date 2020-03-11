@@ -7,7 +7,7 @@ namespace MediumTest.ExampleCompany
         private readonly int _managerMinimumExperience;
 
         public HumanResourcesDepartment()
-            : base("HR Department")
+            : base("HR Department", DepartmentType.HR)
             => _managerMinimumExperience = 5;
 
         public override bool SetManager(IEmployee employee)

@@ -7,7 +7,7 @@ namespace MediumTest.ExampleCompany
         private readonly int _managerMinimumExperience;
 
         public FinanceDepartment()
-            : base("Finance Department")
+            : base("Finance Department", DepartmentType.Finance)
             => _managerMinimumExperience = 15;
 
         public override bool SetManager(IEmployee employee)
