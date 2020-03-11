@@ -21,12 +21,12 @@ namespace MediumTest
         public string Name { get; }
         public int Salary { get; }
         public int Experience { get; }
-        public DateTime RecruitmentDate { get; }
+        public DateTime HireDate { get; }
         public DateTime FireDate { get; }
         public IDepartment Department { get; }
         public EmployeeGrade Grade { get; }
         public WorkingStatus WorkingStatus { get; }
         public void Fire();
-        public void Recruitment();
+        public void Hire();
     }
 }

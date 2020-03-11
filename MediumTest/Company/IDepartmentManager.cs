@@ -3,6 +3,6 @@
     public interface IDepartmentManager
     {
         void Fire(IEmployee employee);
-        void Recruitment(IEmployee employee);
+        void Hire(IEmployee employee);
     }
 }

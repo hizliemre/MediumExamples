@@ -21,15 +21,16 @@
         {
             _department = department;
         }
+
         public void Fire(IEmployee employee)
         {
             employee.Fire();
             _department.RemoveEmployee(employee);
         }
 
-        public void Recruitment(IEmployee employee)
+        public void Hire(IEmployee employee)
         {
-            employee.Recruitment();
+            employee.Hire();
             _department.AddEmployee(employee);
         }
     }
@@ -38,16 +39,16 @@
     {
         private static readonly IDepartmentManagerProvider _dmProvider = new DepartmentManagerProvider();
 
-        public static void Fire(this IDepartment department, IEmployee employee)
+        public static void FireEmployee(this IDepartment department, IEmployee employee)
         {
             var dm = _dmProvider.GetManager(department);
             dm.Fire(employee);
         }
 
-        public static void Recruitment(this IDepartment department, IEmployee employee)
+        public static void HireEmployee(this IDepartment department, IEmployee employee)
         {
             var dm = _dmProvider.GetManager(department);
-            dm.Recruitment(employee);
+            dm.Hire(employee);
         }
     }
 }

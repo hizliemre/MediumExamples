@@ -23,7 +23,7 @@ namespace MediumTest
         public int Salary { get; private set; }
         public IDepartment Department { get; private set; }
         public int Experience { get; private set; }
-        public DateTime RecruitmentDate { get; private set; }
+        public DateTime HireDate { get; private set; }
         public DateTime FireDate { get; private set; }
         public EmployeeGrade Grade { get; private set; }
         public WorkingStatus WorkingStatus => FireDate != null ? WorkingStatus.Fired : WorkingStatus.Working;
@@ -35,11 +35,11 @@ namespace MediumTest
             FireDate = DateTime.Now;
         }
 
-        public void Recruitment()
+        public void Hire()
         {
             if (WorkingStatus == WorkingStatus.Working)
                 throw new InvalidOperationException("This employee is already working.");
-            RecruitmentDate = DateTime.Now;
+            HireDate = DateTime.Now;
         }
     }
 }
