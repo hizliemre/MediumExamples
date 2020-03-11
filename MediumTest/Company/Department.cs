@@ -18,9 +18,9 @@ namespace MediumTest.ExampleCompany
         public IEmployee Manager { get; private set; }
         public string Name { get; private set; }
         public int EmployeeCount => _employees.Count;
-        public double AverageSalary => _employees.Average(x => x.Salary);
-        public double MaximumSalary => _employees.Max(x => x.Salary);
-        public double MinimumSalary => _employees.Min(x => x.Salary);
+        public double AverageSalary => EmployeeCount > 0 ? _employees.Average(x => x.Salary) : 0;
+        public double MaximumSalary => EmployeeCount > 0 ? _employees.Max(x => x.Salary) : 0;
+        public double MinimumSalary => EmployeeCount > 0 ? _employees.Min(x => x.Salary) : 0;
 
         public IEnumerable<IEmployee> Employees => _employees;
 

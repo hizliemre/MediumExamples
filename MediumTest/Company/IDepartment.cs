@@ -17,6 +17,8 @@ namespace MediumTest.ExampleCompany
         IEmployee Manager { get; }
         public int EmployeeCount { get; }
         public double AverageSalary { get; }
+        public double MaximumSalary { get; }
+        public double MinimumSalary { get; }
         bool AddEmployee(IEmployee employee);
         bool RemoveEmployee(IEmployee employee);
         bool SetManager(IEmployee employee);

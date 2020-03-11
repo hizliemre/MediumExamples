@@ -20,7 +20,7 @@ namespace MediumTest.Tests.CompanyTests
             itDepartment.HireEmployee(employee);
 
             // Assert
-            company.Employees.Should().NotBeEmpty();
+            company.Employees.Should().HaveCount(1);
             itDepartment.EmployeeCount.Should().Be(1);
         }
     }
