@@ -10,11 +10,11 @@ namespace MediumTest
             : base("Finance Department")
             => _managerMinimumExperience = 15;
 
-        public override void SetManager(IEmployee employee)
+        public override bool SetManager(IEmployee employee)
         {
             if (employee.Experience < _managerMinimumExperience)
                 throw new InvalidOperationException($"{Name} manager have to be minimum {_managerMinimumExperience} years experience.");
-            base.SetManager(employee);
+            return base.SetManager(employee);
         }
     }
 }

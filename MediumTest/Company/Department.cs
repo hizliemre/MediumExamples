@@ -24,7 +24,7 @@ namespace MediumTest
         public double MaximumSalary => _employees.Max(x => x.Salary);
         public double MinimumSalary => _employees.Min(x => x.Salary);
 
-        public void AddEmployee(IEmployee employee)
+        public bool AddEmployee(IEmployee employee)
         {
             if (IsInGrade(employee, EmployeeGrade.A) && employee.Salary > AverageSalary)
                 throw new InvalidOperationException("Grade A new employees salary cannot be greater than department average salary.");
@@ -39,11 +39,13 @@ namespace MediumTest
                 throw new InvalidOperationException("Grade D new employees salary cannot be less than department maximum salary.");
 
             _employees.Add(employee);
+            return true;
         }
 
-        public virtual void SetManager(IEmployee employee)
+        public virtual bool SetManager(IEmployee employee)
         {
             Manager = employee;
+            return true;
         }
 
         private bool IsInGrade(IEmployee employee, params EmployeeGrade[] grades)

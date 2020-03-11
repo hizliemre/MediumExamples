@@ -6,7 +6,7 @@
         IEmployee Manager { get; }
         public int EmployeeCount { get; }
         public double AverageSalary { get; }
-        void AddEmployee(IEmployee employee);
-        void SetManager(IEmployee employee);
+        bool AddEmployee(IEmployee employee);
+        bool SetManager(IEmployee employee);
     }
 }
