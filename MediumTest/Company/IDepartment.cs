@@ -1,7 +1,10 @@
-﻿namespace MediumTest
+﻿using System.Collections.Generic;
+
+namespace MediumTest
 {
     public interface IDepartment
     {
+        IEnumerable<IEmployee> Employees { get; }
         public string Name { get; }
         IEmployee Manager { get; }
         public int EmployeeCount { get; }

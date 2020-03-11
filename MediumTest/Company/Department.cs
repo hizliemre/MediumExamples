@@ -21,6 +21,8 @@ namespace MediumTest
         public double MaximumSalary => _employees.Max(x => x.Salary);
         public double MinimumSalary => _employees.Min(x => x.Salary);
 
+        public IEnumerable<IEmployee> Employees => _employees;
+
         public bool AddEmployee(IEmployee employee)
         {
             if (IsInGrade(employee, EmployeeGrade.A) && employee.Salary > AverageSalary)

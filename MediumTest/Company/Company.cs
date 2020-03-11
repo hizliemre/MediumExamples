@@ -1,38 +1,28 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MediumTest.Company
 {
-    public interface ICompany
-    {
-        public IEnumerable<IDepartment> Departments { get; }
-        public IEnumerable<IEmployee> Employees { get; }
-        public void LoadDepartments(params IDepartment[] departments);
-        public void LoadEmployees(params IEmployee[] employees);
-    }
 
     internal sealed class Company : ICompany
     {
         public Company()
         {
             _departments = new List<IDepartment>();
-            _employees = new List<IEmployee>();
+            Initialize();
         }
 
         private readonly List<IDepartment> _departments;
-        private readonly List<IEmployee> _employees;
 
         public IEnumerable<IDepartment> Departments => _departments;
 
-        public IEnumerable<IEmployee> Employees => _employees;
+        public IEnumerable<IEmployee> Employees => _departments.SelectMany(x => x.Employees);
 
-        public void LoadDepartments(params IDepartment[] departments)
+        private void Initialize()
         {
-            _departments.AddRange(departments);
-        }
-
-        public void LoadEmployees(params IEmployee[] employees)
-        {
-            _employees.AddRange(employees);
+            _departments.Add(new HumanResourcesDepartment());
+            _departments.Add(new InformationTechnologyDepartment());
+            _departments.Add(new FinanceDepartment());
         }
     }
 }
