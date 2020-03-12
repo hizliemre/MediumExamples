@@ -12,11 +12,6 @@ namespace MediumTest.ExampleCompany
 
             if (Experience < 0)
                 throw new InvalidOperationException("Employee experience should not less than zero.");
-
-            if (Experience <= 2) Grade = EmployeeGrade.A;
-            else if (Experience > 2 && Experience <= 6) Grade = EmployeeGrade.B;
-            else if (Experience > 6 && Experience <= 10) Grade = EmployeeGrade.C;
-            else Grade = EmployeeGrade.D;
         }
 
         public string Name { get; private set; }
@@ -25,7 +20,16 @@ namespace MediumTest.ExampleCompany
         public int Experience { get; private set; }
         public DateTime HireDate { get; private set; }
         public DateTime FireDate { get; private set; }
-        public EmployeeGrade Grade { get; private set; }
+        public EmployeeGrade Grade
+        {
+            get
+            {
+                if (Experience <= 2) return EmployeeGrade.A;
+                else if (Experience > 2 && Experience <= 6) return EmployeeGrade.B;
+                else if (Experience > 6 && Experience <= 10) return EmployeeGrade.C;
+                else return EmployeeGrade.D;
+            }
+        }
         public WorkingStatus WorkingStatus => FireDate != null ? WorkingStatus.Fired : WorkingStatus.Working;
 
         public void Fire()
