@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using MediumTest.ExampleCompany;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -76,5 +77,24 @@ namespace MediumTest.Tests.CompanyTests
             act.Should().NotThrow();
             _companyFixture.Company.ITDepartment.Employees.Should().Contain(newEmployee);
         }
+
+        [Theory]
+        [MemberData(nameof(SetGradeData))]
+        public void Set_grade(DateTime careerStart, EmployeeGrade expectedGrade)
+        {
+            // Act
+            var newEmployee = new Employee(string.Empty, 0, careerStart);
+
+            // Assert
+            newEmployee.Grade.Should().Be(expectedGrade);
+        }
+
+        public static IEnumerable<object[]> SetGradeData => new List<object[]>
+        {
+            new object[] { DateTime.Now.AddYears(-1), EmployeeGrade.A },
+            new object[] { DateTime.Now.AddYears(-4), EmployeeGrade.B },
+            new object[] { DateTime.Now.AddYears(-7), EmployeeGrade.C },
+            new object[] { DateTime.Now.AddYears(-11), EmployeeGrade.D },
+        };
     }
 }
